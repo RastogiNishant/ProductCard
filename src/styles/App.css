@@ -1,0 +1,24 @@
+.app-container {
+	min-height: 100vh;
+	background-color: #f3f4f6;
+	padding: 2rem;
+}
+
+.content-wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.products-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0.5rem;
+	padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+	.products-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+}
