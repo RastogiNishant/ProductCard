@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { ChevronDown, Check } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { ChevronDown, Check, X } from "lucide-react";
 import { Product, PackOption } from "../types";
 import "../styles/ProductCard.css";
 
@@ -14,14 +14,31 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 	);
 	const [isAddedToCart, setIsAddedToCart] = useState(false);
 
+	useEffect(() => {
+		if (isDialogOpen) {
+			document.body.classList.add("dialog-open");
+		} else {
+			document.body.classList.remove("dialog-open");
+		}
+
+		return () => {
+			document.body.classList.remove("dialog-open");
+		};
+	}, [isDialogOpen]);
+
 	const handlePackSelect = (pack: PackOption) => {
 		setSelectedPack(pack);
-		setIsDialogOpen(false);
+		closeDialog();
 	};
 
 	const handleAddToCart = () => {
 		setIsAddedToCart(true);
+		setIsDialogOpen(false);
 		setTimeout(() => setIsAddedToCart(false), 2000);
+	};
+
+	const closeDialog = () => {
+		setIsDialogOpen(false);
 	};
 
 	return (
@@ -87,7 +104,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 			<div
 				className={`overlay ${isDialogOpen ? "active" : ""}`}
-				onClick={() => setIsDialogOpen(false)}
+				onClick={closeDialog}
 			/>
 
 			<div className={`pack-dialog ${isDialogOpen ? "active" : ""}`}>
@@ -99,6 +116,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 							onClick={() => setIsDialogOpen(false)}
 						/>
 					</div>
+					<button className='pack-dialog-close' onClick={closeDialog}>
+						<X size={20} />
+					</button>
 				</div>
 				<div className='pack-dialog-subtitle'>Size</div>
 				<div className='pack-options'>
@@ -133,6 +153,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 						</div>
 					))}
 				</div>
+				<button
+					className='add-to-cart-mobile'
+					onClick={handleAddToCart}
+				>
+					<span className='button-content'>Add to Cart</span>
+				</button>
 			</div>
 		</div>
 	);
