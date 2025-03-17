@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronDown, Check, X } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 import { Product, PackOption } from "../types";
 import "../styles/ProductCard.css";
 
@@ -26,7 +26,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 	return (
 		<div className='product-card'>
-			<div className='product-info'>
+			<div
+				className={`product-info ${isDialogOpen ? "blurred-info" : ""}`}
+			>
 				<div className='product-image'>
 					<img src={product.image} alt={product.name} />
 				</div>
@@ -90,14 +92,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 			<div className={`pack-dialog ${isDialogOpen ? "active" : ""}`}>
 				<div className='pack-dialog-header'>
-					<div className='pack-dialog-title'>Size</div>
-					<button
-						className='pack-dialog-close'
-						onClick={() => setIsDialogOpen(false)}
-					>
-						<X size={24} />
-					</button>
+					<div className='pack-dialog-title'>
+						Zoom out{" "}
+						<ChevronDown
+							size={12}
+							onClick={() => setIsDialogOpen(false)}
+						/>
+					</div>
 				</div>
+				<div className='pack-dialog-subtitle'>Size</div>
 				<div className='pack-options'>
 					{product.packOptions.map((pack) => (
 						<div
@@ -117,6 +120,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 							</div>
 							<div className='pack-option-price'>
 								€{pack.pricePerPiece.toFixed(2)}/piece
+							</div>
+							<div className='checkbox-container'>
+								{selectedPack.size === pack.size ? (
+									<div className='checkbox checked'>
+										<Check size={16} color='black' />
+									</div>
+								) : (
+									<div className='checkbox'></div>
+								)}
 							</div>
 						</div>
 					))}

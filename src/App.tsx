@@ -13,8 +13,10 @@ const products: Product[] = [
 		rating: 3,
 		image: "/images/AceOne.webp",
 		packOptions: [
+			{ size: 1, price: 4.49, pricePerPiece: 4.49 },
 			{ size: 10, price: 39.9, pricePerPiece: 3.99 },
 			{ size: 40, price: 147.6, pricePerPiece: 3.69 },
+			{ size: 80, price: 279.2, pricePerPiece: 3.49 },
 		],
 	},
 	{
@@ -25,8 +27,10 @@ const products: Product[] = [
 		rating: 5,
 		image: "/images/AceTwo.png",
 		packOptions: [
+			{ size: 1, price: 4.49, pricePerPiece: 4.49 },
 			{ size: 10, price: 39.9, pricePerPiece: 3.99 },
 			{ size: 40, price: 147.6, pricePerPiece: 3.69 },
+			{ size: 80, price: 279.2, pricePerPiece: 3.49 },
 		],
 	},
 	{
@@ -37,8 +41,10 @@ const products: Product[] = [
 		rating: 2,
 		image: "/images/AceThree.webp",
 		packOptions: [
+			{ size: 1, price: 4.49, pricePerPiece: 4.49 },
 			{ size: 10, price: 39.9, pricePerPiece: 3.99 },
 			{ size: 40, price: 147.6, pricePerPiece: 3.69 },
+			{ size: 80, price: 279.2, pricePerPiece: 3.49 },
 		],
 	},
 	{
@@ -49,8 +55,10 @@ const products: Product[] = [
 		rating: 4,
 		image: "/images/AceFour.png",
 		packOptions: [
+			{ size: 1, price: 4.49, pricePerPiece: 4.49 },
 			{ size: 10, price: 39.9, pricePerPiece: 3.99 },
 			{ size: 40, price: 147.6, pricePerPiece: 3.69 },
+			{ size: 80, price: 279.2, pricePerPiece: 3.49 },
 		],
 	},
 	{
@@ -61,8 +69,10 @@ const products: Product[] = [
 		rating: 4,
 		image: "/images/AceFive.png",
 		packOptions: [
+			{ size: 1, price: 4.49, pricePerPiece: 4.49 },
 			{ size: 10, price: 39.9, pricePerPiece: 3.99 },
 			{ size: 40, price: 147.6, pricePerPiece: 3.69 },
+			{ size: 80, price: 279.2, pricePerPiece: 3.49 },
 		],
 	},
 	{
@@ -73,8 +83,10 @@ const products: Product[] = [
 		rating: 1,
 		image: "/images/AceSix.webp",
 		packOptions: [
+			{ size: 1, price: 4.49, pricePerPiece: 4.49 },
 			{ size: 10, price: 39.9, pricePerPiece: 3.99 },
 			{ size: 40, price: 147.6, pricePerPiece: 3.69 },
+			{ size: 80, price: 279.2, pricePerPiece: 3.49 },
 		],
 	},
 ];

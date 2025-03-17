@@ -22,3 +22,12 @@
 		gap: 1rem;
 	}
 }
+
+@media (max-width: 480px) {
+	.app-container {
+		padding: 0.5rem;
+	}
+	.products-grid {
+		padding: 0;
+	}
+}
